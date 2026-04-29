@@ -1,0 +1,24 @@
+[app]
+id          = "test-app"
+name        = "Test App"
+description = "A minimal manifest for unit tests"
+homepage    = "https://example.com"
+
+[requires]
+games           = [12345]
+wine_components = ["dotnet48"]
+
+[source]
+url  = "https://example.com/setup.exe"
+type = "inno"
+
+[install]
+target_prefix = "game"
+
+[launch]
+exe  = "app/TestApp.exe"
+args = []
+
+[meta]
+tags        = ["test"]
+linux_notes = ""

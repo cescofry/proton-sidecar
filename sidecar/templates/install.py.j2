@@ -1,0 +1,31 @@
+"""
+Custom install/launch hooks for {{ app_name_title }}.
+
+All methods are optional — override only what you need.
+Delete this file and remove [install].script from manifest.toml if no custom logic is required.
+
+References:
+  - Context types: sidecar/context.py
+  - Manifest structure: Documentation/manifest.md
+  - Examples: apps/acc-connector/install.py
+"""
+from sidecar.hook import Hook as BaseHook
+from sidecar.context import InstallContext, LaunchContext
+
+
+class Hook(BaseHook):
+    def post_install(self, ctx: InstallContext) -> None:
+        """Called after extraction. Use for DLL deployment, config file generation, etc."""
+        pass
+
+    def pre_launch(self, ctx: LaunchContext) -> None:
+        """Called before Proton starts. Use for environment setup, port checks, etc."""
+        pass
+
+    def post_launch(self, ctx: LaunchContext) -> None:
+        """Called after Proton exits. Use for cleanup, log archiving, etc."""
+        pass
+
+    def uninstall(self, ctx: InstallContext) -> None:
+        """Called by `sidecar remove`. Reverse anything done in post_install."""
+        pass

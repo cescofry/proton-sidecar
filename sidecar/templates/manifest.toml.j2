@@ -1,0 +1,36 @@
+[app]
+id          = "{{ app_name }}"
+name        = "{{ app_name_title }}"
+description = "TODO: one-line description of what this tool does"
+homepage    = "{{ repo_url }}"
+
+[requires]
+# Steam App IDs that this tool works with — find them at https://store.steampowered.com/app/<ID>
+games           = []   # TODO: add Steam App IDs, e.g. [805550]
+wine_components = []   # TODO: add winetricks verbs if needed, e.g. ["dotnet48", "vcrun2019"]
+
+[source]
+# Direct download URL or GitHub releases page URL
+url = "{{ repo_url }}/releases/latest"
+# Installer format: inno | msi | zip | raw_exe | raw_dir
+type = "inno"
+# Regex matched against GitHub release asset filenames (required for GitHub releases URLs)
+asset_pattern = "Setup.*\\.exe$"
+
+[install]
+# Where to install: "game" (share the game's Proton prefix) or "standalone" (separate prefix)
+target_prefix = "game"
+# Uncomment if custom install logic is needed (e.g. DLL deployment, config writing):
+# script = "install.py"
+
+[launch]
+# Path to the EXE relative to the extracted app directory
+exe  = "TODO.exe"
+args = []
+
+# [launch.env]
+# ENV_VAR = "value"
+
+[meta]
+tags        = []   # e.g. ["sim-racing", "telemetry", "voice"]
+linux_notes = ""   # Manual steps shown to user after install (leave empty if none)
