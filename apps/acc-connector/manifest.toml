@@ -1,0 +1,26 @@
+[app]
+id          = "acc-connector"
+name        = "ACC Connector"
+description = "Direct IP connection for Assetto Corsa Competizione — bypasses LAN-only server discovery"
+homepage    = "https://github.com/lonemeow/acc-connector"
+
+[requires]
+games           = [805550]
+wine_components = []        # conditional dep (dotnetdesktop8) handled in install.py
+
+[source]
+url           = "https://github.com/lonemeow/acc-connector/releases/latest"
+type          = "inno"
+asset_pattern = "ACC-Connector-Setup-.*\\.exe$"
+
+[install]
+target_prefix = "game"
+script        = "install.py"
+
+[launch]
+exe  = "ACC Connector.exe"
+args = []
+
+[meta]
+tags        = ["sim-racing", "connectivity", "acc"]
+linux_notes = ""
